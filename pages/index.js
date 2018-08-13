@@ -1,20 +1,62 @@
-import Layout from '../components/Layout'
+import { Component } from 'react'
+import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
+import Layout from '../components/Layout'
 
-const Index = ({ posts }) => (
-    <Layout>
-        <h1>Welcome to Next.js</h1>
-        { posts.map(post => <span>{post.id}</span>)}
-    </Layout>
-)
+class Index extends Component {
+    static getInitialProps = async () => {
+        const res = await fetch('https://about.savvycard.com/wp-json/wp/v2/posts')
+        const posts = await res.json()
+    
+        return {
+            posts
+        }
+    }
 
-Index.getInitialProps = async () => {
-    const res = await fetch('https://about.savvycard.com/wp-json/wp/v2/posts')
-    const posts = await res.json()
-
-    return {
-        posts
+    render() {
+        const { posts } = this.props
+        console.log(posts)
+        return(
+            <Layout>
+                <h1>Welcome to Next.js</h1>
+                <style jsx>
+                    {`
+                        h1 {
+                            color: red;
+                        }
+                    `}
+                </style>
+                <ul>
+                { posts.map(post => {
+                    return(
+                        <li key={post.id}>
+                            <Link
+                                as={`/post/${post.slug}`} 
+                                href={`/post?slug=${post.id}`}>
+                                    <a>{post.title.rendered}</a>
+                            </Link>
+                        </li>)
+                    })}
+                </ul>
+            </Layout>
+        )
     }
 }
 
 export default Index
+/*
+getInitialProps argument object
+
+req - HTTP request object (server only)
+res - HTTP response object (server only)
+query - query string section of URL parsed as an object
+pathname - path section of URL
+asPath - String of actual path (including the query) shows in the browser
+jsonPageRes - Fetch response object (client only)
+err - Error object if any error is encountered during the response
+
+
+Clean url, make used of as on Link
+
+For this we need the help of a extra server for nextjs, this where express come to play
+*/
