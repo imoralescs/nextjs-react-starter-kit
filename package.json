@@ -1,0 +1,33 @@
+{
+  "name": "node-nextjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imoralescs/node-nextjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imoralescs/node-nextjs/issues"
+  },
+  "homepage": "https://github.com/imoralescs/node-nextjs#readme",
+  "dependencies": {
+    "isomorphic-unfetch": "^2.1.1",
+    "next": "^6.1.1",
+    "nprogress": "^0.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-react": "^7.10.0"
+  }
+}
