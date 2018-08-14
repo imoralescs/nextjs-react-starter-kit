@@ -18,26 +18,49 @@ class Index extends Component {
         console.log(posts)
         return(
             <Layout>
-                <h1>Welcome to Next.js</h1>
-                <style jsx>
-                    {`
-                        h1 {
-                            color: red;
-                        }
-                    `}
-                </style>
-                <ul>
-                { posts.map(post => {
-                    return(
-                        <li key={post.id}>
-                            <Link
-                                as={`/post/${post.slug}`} 
-                                href={`/post?slug=${post.id}`}>
-                                    <a>{post.title.rendered}</a>
-                            </Link>
-                        </li>)
-                    })}
-                </ul>
+                <div className='content'>
+                    <div className='container'>
+                        <h1 className='main-header'>SavvyCard News Blog</h1>
+                        <ul className='posts'>
+                        { posts.map(post => {
+                            return(
+                                <li className='post' key={post.id}>
+                                    <Link
+                                        as={`/post/${post.slug}`} 
+                                        href={`/post?slug=${post.id}`}>
+                                            <a>{post.title.rendered}</a>
+                                    </Link>
+                                </li>)
+                            })}
+                        </ul>
+                    </div>
+                    <style jsx>
+                        {`
+                            .main-header {
+                                font-size: 3.2em;
+                            }
+
+                            .post a {
+                                color: #333333;
+                                text-decoration: none;
+                                padding: .4em 0;
+                                display: block;
+                                font-weight: bold;
+                            }
+
+                            .post a:hover {
+                                color: #66B4E8;
+                                font-weight: bold;
+                            }
+
+                            @media (min-width: 42em) {
+                                .content {
+                                    padding: 2em 3em;
+                                }
+                            }
+                        `}
+                    </style>
+                </div>
             </Layout>
         )
     }

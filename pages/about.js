@@ -2,7 +2,11 @@ import Layout from '../components/Layout'
 
 export default () => (
     <Layout>
-        <h1>About</h1>
-        <p>This site about pages</p>
+        <div className='content'>
+            <div className='container'>
+                <h1>About</h1>
+                <p>This site about pages</p>
+            </div>
+        </div>
     </Layout>
 )

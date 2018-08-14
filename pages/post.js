@@ -5,8 +5,12 @@ import fetch from 'isomorphic-unfetch'
 const Post = (props) => {
     return (
         <Layout>
-            <h1>{props.post.title.rendered}</h1>
-            <div dangerouslySetInnerHTML={{__html: props.post.content.rendered}}></div>
+            <div className='content'>
+                <div className='container'>
+                    <h1>{props.post.title.rendered}</h1>
+                    <div className='post-content' dangerouslySetInnerHTML={{__html: props.post.content.rendered}}></div>
+                </div>
+            </div>
         </Layout>
     )
     
