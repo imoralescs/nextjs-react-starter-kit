@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta charSet='utf-8' />
                     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+                    <link rel="shortcut icon" href="/static/favicon.ico"/>
                     <link rel='stylesheet' href='/static/styles.css' />
                 </Head>
                 <body>

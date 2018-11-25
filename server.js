@@ -1,7 +1,8 @@
 const express = require('express')
 const next = require('next')
+const config = require('./config')
 
-const dev = process.env.NODE_ENV !== 'production'
+const { dev } = config
 const app = next({ dev })
 const handle = app.getRequestHandler() 
 
@@ -20,10 +21,11 @@ app
 
         server.listen(3000, err => {
             if(err) throw err
+            // eslint-disable-next-line no-console
             console.log(`Ready on http://localhost:3000`)
         })
     })
-    .catch(ex => {
-        console.error(ex.stack)
-        process.exit(1)
+    .catch(err => {
+        // eslint-disable-next-line no-console
+        console.error(err.stack)
     })

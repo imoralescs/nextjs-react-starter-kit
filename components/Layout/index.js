@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 Router.onRouteChangeStart = (url) => {
+    // eslint-disable-next-line no-console
     console.log(`Loading: ${url}`)
     NProgress.start()
 }

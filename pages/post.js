@@ -1,4 +1,3 @@
-import { Component } from 'react'
 import Layout from '../components/Layout'
 import fetch from 'isomorphic-unfetch'
 
